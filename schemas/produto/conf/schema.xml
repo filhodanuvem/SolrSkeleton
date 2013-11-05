@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="Product" version="1.1">
+  <types>
+    <fieldType name="inteiro" class="solr.IntField" />
+    <fieldType name="frase" class="solr.StrField" />
+    <fieldType name="complexo" class="solr.TextField" >
+     <analyzer>
+       <tokenizer class="solr.StandardTokenizerFactory"/>
+       <filter class="solr.StopFilterFactory" words="stopwords.txt" />
+       <filter class="solr.LowerCaseFilterFactory"/>
+       <filter class="solr.BrazilianStemFilterFactory" />
+      </analyzer>
+     </fieldType>
+   </types>
+   <fields>
+      <field name="id" type="inteiro" />
+      <field name="numero_compras" type="inteiro" />
+      <field name="nome" type="complexo" />
+      <field name="texto" type="complexo" />
+   </fields>
+   <uniqueKey>id</uniqueKey>
+</schema>

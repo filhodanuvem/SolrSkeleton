@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <luceneMatchVersion>4.4</luceneMatchVersion>
+  <directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.StandardDirectoryFactory}"/>
+
+  <dataDir>${solr.core0.data.dir:}</dataDir>
+
+  <schemaFactory class="ClassicIndexSchemaFactory"/>
+
+  <updateHandler class="solr.DirectUpdateHandler2" />
+  
+<requestHandler name="standard" class="solr.StandardRequestHandler" default="true" />
+  <requestHandler name="/update" class="solr.XmlUpdateRequestHandler" />
+  <requestHandler name="/admin/" class="org.apache.solr.handler.admin.AdminHandlers" />
+  <admin>
+    <defaultQuery>solr</defaultQuery>
+  </admin>
+
+</config>
+
