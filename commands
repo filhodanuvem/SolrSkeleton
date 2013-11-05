@@ -1,0 +1,17 @@
+curl "127.0.0.1:8389/solr/produto/select?q=*:*"
+
+ curl "127.0.0.1:8389/solr/produto/update?commit=true" -H "Content-Type: text/xml" --data-binary '<add><doc><field name="id">1</field><field name="numero_compras">1</field><field name="nome">Cartão de visita</field><field name="texto">cartão de visita para divulgar sua marca!</field></doc></add>'
+
+ curl "127.0.0.1:8389/solr/produto/update?commit=true" -H "Content-Type: text/xml" --data-binary '<add><doc><field name="id">1</field><field name="numero_compras">1</field><field name="nome">Cartão de visita atualizado</field><field name="texto">cartão de visita para divulgar sua marca! Combina perfeitamente com seu iphone! </field></doc></add>' 
+
+ curl "127.0.0.1:8389/solr/produto/update?commit=true" -H "Content-Type: text/xml" --data-binary '<add><doc><field name="id">2</field><field name="numero_compras">3</field><field name="nome">Capa de iphone</field><field name="texto">capa de celular apple 4s</field></doc></add>'
+
+ curl "127.0.0.1:8389/solr/produto/update?commit=true" -H "Content-Type: text/xml" --data-binary '<add><doc><field name="id">3</field><field name="numero_compras">5</field><field name="nome">Cartão de visita vertical</field><field name="texto">Produto excelente para sua marca!</field></doc></add>'
+
+
+curl 127.0.0.1:8389/solr/produto/update?commit=true -H "Content-Type: text/xml" --data-binary '<delete><id>1</id></delete>'
+
+curl "127.0.0.1:8389/solr/produto/select?q=nome:iphone&wt=json"
+curl "127.0.0.1:8389/solr/produto/select?q=nome:iphone%20OR%20texto:iphone&wt=json"
+curl "127.0.0.1:8389/solr/produto/select?q=nome:iphone%20OR%20texto:iphone^3&wt=json"
+
